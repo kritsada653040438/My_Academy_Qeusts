@@ -1,0 +1,6 @@
+<%= form_with(model: quest, class: "mb-4") do |form| %>
+  <div class="flex items-center">
+    <%= form.text_field :name, class: "flex-grow rounded-l-lg p-2 border-t mr-0 border-b border-l text-gray-800 border-gray-200 bg-white", placeholder: "Add a new quest..." %>
+    <%= form.submit "Add", class: "px-4 rounded-r-lg bg-blue-500 text-white font-bold p-2 uppercase border-blue-500 border-t border-b border-r" %>
+  </div>
+<% end %>

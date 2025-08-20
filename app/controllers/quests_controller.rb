@@ -18,8 +18,7 @@ class QuestsController < ApplicationController
         @quests = Quest.all.order(created_at: :desc)
         format.turbo_stream do
           render turbo_stream: [
-            turbo_stream.replace("quests-container", partial: "quests_container"),
-            turbo_stream.replace("new_quest", partial: "form", locals: { quest: Quest.new })
+            turbo_stream.replace("quests-container", partial: "quests_container")
           ]
         end
         format.html { redirect_to quests_path, notice: "Quest was successfully created." }

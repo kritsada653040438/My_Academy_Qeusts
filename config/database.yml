@@ -18,11 +18,13 @@ default: &default
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  url: <%= ENV["DATABASE_URL_DEV"] %>
 
 
 development:
   <<: *default
   database: pleum_academy_quest_development
+  url: <%= ENV["DATABASE_URL_DEV"] %>
 
   # The specified database role being used to connect to PostgreSQL.
   # To create additional roles in PostgreSQL see `$ createuser --help`.
@@ -57,6 +59,7 @@ development:
 test:
   <<: *default
   database: pleum_academy_quest_test
+  url: <%= ENV["DATABASE_URL_TEST"] %>
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -81,18 +84,13 @@ test:
 production:
   primary: &primary_production
     <<: *default
-    database: pleum_academy_quest_production
-    username: pleum_academy_quest
-    password: <%= ENV["PLEUM_ACADEMY_QUEST_DATABASE_PASSWORD"] %>
+    url: <%= ENV["DATABASE_URL_PROD"] %>
   cache:
-    <<: *primary_production
-    database: pleum_academy_quest_production_cache
+    url: <%= ENV["DATABASE_URL_PROD_CACHE"] %>
     migrations_paths: db/cache_migrate
   queue:
-    <<: *primary_production
-    database: pleum_academy_quest_production_queue
+    url: <%= ENV["DATABASE_URL_PROD_QUEUE"] %>
     migrations_paths: db/queue_migrate
   cable:
-    <<: *primary_production
-    database: pleum_academy_quest_production_cable
+    url: <%= ENV["DATABASE_URL_PROD_CABLE"] %>
     migrations_paths: db/cable_migrate

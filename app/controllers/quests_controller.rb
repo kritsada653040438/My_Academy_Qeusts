@@ -53,6 +53,8 @@ class QuestsController < ApplicationController
   private
     def set_quest
       @quest = Quest.find(params[:id])
+    rescue ActiveRecord::RecordNotFound
+      redirect_to root_path, alert: "Quest not found."
     end
 
     def quest_params

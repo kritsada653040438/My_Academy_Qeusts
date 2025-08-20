@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root "quests#index"
 
-  resources :quests do
+  resources :quests, only: [ :index, :create, :destroy ] do
     member do
       patch :toggle
     end

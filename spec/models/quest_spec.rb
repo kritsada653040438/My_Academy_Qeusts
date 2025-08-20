@@ -9,13 +9,13 @@ RSpec.describe Quest, type: :model do
   it "is invalid without a name" do
     quest = build(:quest, name: nil)
     quest.valid?
-    expect(quest.errors[:name]).to include("can't be blank")
+    expect(quest.errors[:name]).to include("cannot be empty, please provide a quest name.")
   end
 
   it "is invalid with a name longer than 100 characters" do
     quest = build(:quest, name: "a" * 101)
     quest.valid?
-    expect(quest.errors[:name]).to include("is too long (maximum is 100 characters)")
+    expect(quest.errors[:name]).to include("is too long, please keep it under 100 characters.")
   end
 
   it "is invalid without a status" do

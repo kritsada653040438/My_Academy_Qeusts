@@ -4,7 +4,7 @@ RSpec.describe "Quests", type: :request do
   describe "GET /quests" do
     it "returns a successful response" do
       get quests_path
-      expect(response).to be_successful
+      expect(response).to have_http_status(200)
     end
   end
 
@@ -18,8 +18,8 @@ RSpec.describe "Quests", type: :request do
 
       it "creates two new quests" do
         expect {
-          post quests_path, params: { quest: { name: "Another Test Quest" } }
-          post quests_path, params: { quest: { name: "Yet Another Test Quest" } }
+          post quests_path, params: { quest: { name: "Test Quest 1" } }
+          post quests_path, params: { quest: { name: "Test Quest 2" } }
         }.to change(Quest, :count).by(2)
       end
     end

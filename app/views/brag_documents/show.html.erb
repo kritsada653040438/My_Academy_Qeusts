@@ -1,15 +1,100 @@
-<div class="bg-white shadow-md rounded-lg p-6 max-w-3xl mx-auto">
-  <div class="mb-4">
-    <%= link_to "Back to Quests", quests_path, class: "text-blue-500 hover:underline" %>
+<div class="bg-gradient-to-br from-pink-50 to-rose-100 shadow-xl rounded-2xl p-8 max-w-4xl mx-auto border border-pink-200">
+  <div class="mb-6">
+    <%= link_to quests_path, class: "inline-flex items-center text-pink-600 hover:text-pink-800 font-medium transition-colors" do %>
+      <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+      </svg>
+      Back to Quests
+    <% end %>
   </div>
-  <h1 class="text-3xl font-bold mb-4">My Brag Document</h1>
-  <div class="flex items-center mb-4">
-    <p class="text-gray-600 mr-4">John Doe</p>
-    <p class="text-gray-600">5 min read</p>
+
+  <!-- Header Section -->
+  <div class="text-center mb-8">
+    <h1 class="text-5xl font-bold bg-gradient-to-r from-pink-600 via-rose-500 to-pink-700 bg-clip-text text-transparent mb-4">
+      PLEUM'S JOURNEY
+    </h1>
+    <p class="text-pink-700 text-lg font-medium">My 2025 Goals & Dreams</p>
+    <div class="flex items-center justify-center space-x-6 mt-4 text-pink-600">
+      <div class="flex items-center">
+        <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
+          <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.414-1.414L11 9.586V6z" clip-rule="evenodd"></path>
+        </svg>
+        <span>Future Software Developer</span>
+      </div>
+      <div class="flex items-center">
+        <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
+          <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+        </svg>
+        <span>Dream Chaser</span>
+      </div>
+    </div>
   </div>
-  <img src="https://via.placeholder.com/800x400" alt="Placeholder Image" class="w-full h-64 object-cover rounded-lg mb-4">
-  <div class="prose max-w-none">
-    <p>Here is some example text for the brag document. You can write about your accomplishments, skills, and experiences here.</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+  <!-- Goals Section -->
+  <div class="grid md:grid-cols-2 gap-6 mb-8">
+    <!-- English & TOEIC Goal -->
+    <div class="bg-white rounded-xl p-6 shadow-lg border-l-4 border-pink-500">
+      <div class="flex items-center mb-4">
+        <div class="bg-pink-100 p-3 rounded-full mr-4">
+          <svg class="w-6 h-6 text-pink-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064"></path>
+          </svg>
+        </div>
+        <h3 class="text-xl font-bold text-pink-800">English Mastery</h3>
+      </div>
+      <p class="text-gray-700">เรียนภาษาอังกฤษให้เก่งและสอบ <span class="font-bold text-pink-600">TOEIC > 750</span> เพื่อเปิดโอกาสในอนาคต</p>
+    </div>
+
+    <!-- University Goal -->
+    <div class="bg-white rounded-xl p-6 shadow-lg border-l-4 border-rose-500">
+      <div class="flex items-center mb-4">
+        <div class="bg-rose-100 p-3 rounded-full mr-4">
+          <svg class="w-6 h-6 text-rose-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z"></path>
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"></path>
+          </svg>
+        </div>
+        <h3 class="text-xl font-bold text-rose-800">Academic Achievement</h3>
+      </div>
+      <p class="text-gray-700">สอบเข้าเป็น<span class="font-bold text-rose-600">นักเรียนนักบิน</span>ผ่านระบบโควต้า เพื่อความฝันในการบิน</p>
+    </div>
+  </div>
+
+  <!-- Professional Goals -->
+  <div class="bg-white rounded-xl p-8 shadow-lg mb-6">
+    <div class="text-center mb-6">
+      <h2 class="text-3xl font-bold text-pink-800 mb-2">Professional Journey with ODDS</h2>
+      <div class="w-24 h-1 bg-gradient-to-r from-pink-400 to-rose-500 mx-auto rounded-full"></div>
+    </div>
+    
+    <div class="grid md:grid-cols-2 gap-8">
+      <div class="text-center">
+        <div class="bg-gradient-to-br from-pink-500 to-rose-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
+          <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m8 6V9a2 2 0 00-2-2H8a2 2 0 00-2 2v3m8 0a2 2 0 002 2v0a2 2 0 002-2m-6 0a2 2 0 012 2v0a2 2 0 01-2 2m-6 0a2 2 0 012 2v0a2 2 0 01-2 2"></path>
+          </svg>
+        </div>
+        <h3 class="text-xl font-bold text-pink-800 mb-2">Internship Success</h3>
+        <p class="text-gray-600">ผ่านการฝึกงานกับบริษัท <span class="font-bold text-pink-600">ODDS</span> อย่างประสบความสำเร็จ</p>
+      </div>
+
+      <div class="text-center">
+        <div class="bg-gradient-to-br from-rose-500 to-pink-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
+          <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+          </svg>
+        </div>
+        <h3 class="text-xl font-bold text-rose-800 mb-2">Scrum Master Excellence</h3>
+        <p class="text-gray-600">ฝึกฝนเป็น <span class="font-bold text-rose-600">Scrum Master ให้ดีที่สุด</span> จากโอกาสที่ ODDS มอบให้</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Inspiration Quote -->
+  <div class="bg-gradient-to-r from-pink-600 to-rose-600 rounded-xl p-8 text-center text-white shadow-xl">
+    <blockquote class="text-2xl font-light italic mb-4">
+      "We believe software development should be joyful and advocate deliberate practice."
+    </blockquote>
+    <p class="text-pink-100 font-medium">- PLEUM 2025</p>
   </div>
 </div>

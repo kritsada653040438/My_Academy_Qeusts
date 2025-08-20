@@ -1,11 +1,15 @@
 <%= turbo_frame_tag dom_id(quest), data: { controller: "quest" } do %>
-  <div class="flex items-center justify-between p-4 bg-white shadow-md rounded-lg mb-2">
+  <div class="flex items-center justify-between p-4 bg-white hover:bg-pink-50 shadow-sm hover:shadow-md border border-pink-100 rounded-lg mb-3 transition-all duration-200">
     <div class="flex items-center">
       <%= button_to toggle_quest_path(quest), method: :patch, class: "mr-4" do %>
-        <%= check_box_tag "quest_status_#{quest.id}", quest.id, quest.status?, data: { action: "change->quest#toggle", quest_target: "checkbox" }, class: "h-6 w-6 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500" %>
+        <%= check_box_tag "quest_status_#{quest.id}", quest.id, quest.status?, data: { action: "change->quest#toggle", quest_target: "checkbox" }, class: "h-6 w-6 mt-2 rounded border-2 border-pink-300 text-pink-600 focus:ring-2 focus:ring-pink-500 transition-all" %>
       <% end %>
-      <span class="<%= quest.status? ? 'line-through' : '' %>"><%= quest.name %></span>
+      <span class="<%= quest.status? ? 'line-through text-pink-400' : 'text-pink-600' %> transition-colors duration-200 font-medium text-xl"><%= quest.name %></span>
     </div>
-    <%= button_to "Delete", quest_path(quest), method: :delete, class: "text-red-500 hover:underline" %>
+    <%= button_to quest_path(quest), method: :delete, class: "text-pink-400 hover:text-pink-600 hover:bg-pink-100 p-2 rounded-xl transition-all duration-200" do %>
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+      </svg>
+    <% end %>
   </div>
 <% end %>

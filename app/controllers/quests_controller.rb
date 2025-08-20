@@ -1,9 +1,13 @@
 class QuestsController < ApplicationController
-  before_action :set_quest, only: %i[ destroy toggle ]
+  before_action :set_quest, only: %i[ show destroy toggle ]
 
   def index
     @quests = Quest.all.order(created_at: :desc)
-    @quest = Quest.new
+  @quest = Quest.new unless @quest.present?
+  end
+
+  def show
+    redirect_to root_path
   end
 
   def create
@@ -33,10 +37,7 @@ class QuestsController < ApplicationController
     @quest.destroy!
 
     respond_to do |format|
-      format.turbo_stream do
-        @quests = Quest.all.order(created_at: :desc)
-        render turbo_stream: turbo_stream.replace("quests-container", partial: "quests_container")
-      end
+      format.turbo_stream { turbo_stream.remove @quest }
       format.html { redirect_to root_path }
     end
   end

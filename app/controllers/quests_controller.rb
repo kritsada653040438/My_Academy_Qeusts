@@ -2,7 +2,7 @@ class QuestsController < ApplicationController
   before_action :set_quest, only: %i[ destroy toggle ]
 
   def index
-    @quests = Quest.all
+    @quests = Quest.all.order(:created_at)
     @quest = Quest.new
   end
 

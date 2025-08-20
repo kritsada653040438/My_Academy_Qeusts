@@ -1,29 +1,31 @@
-<%= form_with(model: quest, class: "mb-6", data: { controller: "form", action: "turbo:submit-end->form#reset" }) do |form| %>
-  <% if quest.errors.any? %>
-    <div id="error_explanation" class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-4" role="alert">
-      <strong class="font-bold">Oops!</strong> 
-      <span class="inline">There were some errors:</span>
-      <ul class="mt-2 list-disc list-inside">
-        <% quest.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
+<div id="new_quest">
+  <%= form_with(model: quest, class: "mb-6", data: { controller: "form", action: "turbo:submit-end->form#reset" }) do |form| %>
+    <% if quest.errors.any? %>
+      <div id="error_explanation" class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-4" role="alert">
+        <strong class="font-bold">Oops!</strong> 
+        <span class="inline">There were some errors:</span>
+        <ul class="mt-2 list-disc list-inside">
+          <% quest.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="relative">
+      <div class="flex rounded-xl shadow-sm border border-pink-200 overflow-hidden focus-within:ring-2 focus-within:ring-pink-500 focus-within:border-transparent transition-all duration-200">
+        <div class="relative flex-1">
+          <%= form.text_field :name, 
+              class: "w-full px-4 py-3 bg-white text-pink-400 placeholder-pink-300 border-0 focus:ring-0 focus:outline-none", 
+              placeholder: "What's your next quest?",
+              data: { form_target: "input" } %>
+        </div>
+        <%= form.submit class: "px-3 py-3 bg-gradient-to-r from-pink-600 to-pink-700 hover:from-pink-700 hover:to-pink-800 text-white font-medium transition-all duration-200 cursor-pointer border-0 flex items-center space-x-2", data: { test_id: "add-quest-button" } do %>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+          </svg>
         <% end %>
-      </ul>
+      </div>
     </div>
   <% end %>
-
-  <div class="relative">
-    <div class="flex rounded-xl shadow-sm border border-pink-200 overflow-hidden focus-within:ring-2 focus-within:ring-pink-500 focus-within:border-transparent transition-all duration-200">
-      <div class="relative flex-1">
-        <%= form.text_field :name, 
-            class: "w-full px-4 py-3 bg-white text-pink-400 placeholder-pink-300 border-0 focus:ring-0 focus:outline-none", 
-            placeholder: "What's your next quest?",
-            data: { form_target: "input" } %>
-      </div>
-      <%= form.submit class: "px-3 py-3 bg-gradient-to-r from-pink-600 to-pink-700 hover:from-pink-700 hover:to-pink-800 text-white font-medium transition-all duration-200 cursor-pointer border-0 flex items-center space-x-2", data: { test_id: "add-quest-button" } do %>
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
-        </svg>
-      <% end %>
-    </div>
-  </div>
-<% end %>
+</div>

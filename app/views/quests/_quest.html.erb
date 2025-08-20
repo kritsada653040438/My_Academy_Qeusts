@@ -4,7 +4,7 @@
       <%= button_to toggle_quest_path(quest), method: :patch, class: "mr-4" do %>
         <%= check_box_tag "quest_status_#{quest.id}", quest.id, quest.status?, data: { action: "change->quest#toggle", quest_target: "checkbox" }, class: "h-6 w-6 mt-2 rounded border-2 border-pink-300 text-pink-600 focus:ring-2 focus:ring-pink-500 transition-all" %>
       <% end %>
-      <span class="<%= quest.status? ? 'line-through text-pink-400' : 'text-pink-600' %> transition-colors duration-200 font-medium text-xl"><%= quest.name %></span>
+      <span class="<%= quest.status? ? 'line-through text-pink-400' : 'text-pink-600' %> transition-colors duration-200 font-medium text-xl"><%=truncate(quest.name, length: 30) %></span>
     </div>
     <%= button_to quest_path(quest), method: :delete, class: "text-pink-400 hover:text-pink-600 hover:bg-pink-100 p-2 rounded-xl transition-all duration-200" do %>
       <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">

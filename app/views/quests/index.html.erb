@@ -86,11 +86,7 @@
     <%= turbo_frame_tag "new_quest" do %>
       <%= render "form", quest: @quest %>
     <% end %>
-    <div class= "overflow-y-auto md:max-h-[80vh] max-h-[30vh]">
-    <%= turbo_frame_tag "quests" do %>
-      <%= render @quests %>
-    <% end %>
-    </div>
+    <%= render "quests_container" %>
   </div>
 </div>
 

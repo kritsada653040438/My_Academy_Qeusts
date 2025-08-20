@@ -11,11 +11,17 @@ class QuestsController < ApplicationController
 
     respond_to do |format|
       if @quest.save
-        format.turbo_stream
-        format.html { redirect_to quests_path, notice: "Quest was successfully created." }
+        @quests = Quest.all.order(:created_at)
+        format.turbo_stream do
+          render turbo_stream: [
+            turbo_stream.replace("quests-container", partial: "quests_container"),
+            turbo_stream.replace("new_quest", partial: "form", locals: { quest: Quest.new })
+          ]
+        end
       else
-        @quests = Quest.all # Ensure @quests is set for rendering index
-        format.html { render :index, status: :unprocessable_content }
+        format.turbo_stream do
+          render turbo_stream: turbo_stream.replace("new_quest", partial: "form", locals: { quest: @quest })
+        end
       end
     end
   end
@@ -24,8 +30,11 @@ class QuestsController < ApplicationController
     @quest.destroy!
 
     respond_to do |format|
-      format.turbo_stream
-      format.html { redirect_to quests_path, notice: "Quest was successfully destroyed." }
+      format.turbo_stream do
+        @quests = Quest.all # โหลดข้อมูลใหม่หลังลบ
+        render turbo_stream: turbo_stream.replace("quests-container", partial: "quests_container")
+      end
+      format.html { redirect_to root_path }
     end
   end
 

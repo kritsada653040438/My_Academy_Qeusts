@@ -2,7 +2,18 @@
   <div class="flex items-center justify-between p-4 bg-white hover:bg-pink-50 shadow-sm hover:shadow-md border border-pink-100 rounded-lg mb-3 transition-all duration-200">
     <div class="flex items-center">
       <%= button_to toggle_quest_path(quest), method: :patch, class: "mr-4" do %>
-        <%= check_box_tag "quest_status_#{quest.id}", quest.id, quest.status?, data: { action: "change->quest#toggle", quest_target: "checkbox" }, class: "h-6 w-6 mt-2 rounded border-2 border-pink-300 text-pink-600 focus:ring-2 focus:ring-pink-500 transition-all" %>
+      <%= check_box_tag "quest_status_#{quest.id}", quest.id, quest.status?,
+        data: { action: "change->quest#toggle", quest_target: "checkbox" },
+        class: "
+          h-6 w-6 mt-2 rounded 
+          appearance-none border-2 border-pink-300 
+          checked:bg-pink-500 checked:border-pink-500
+          focus:ring-2 focus:ring-pink-400 focus:outline-none
+          transition-all duration-200
+          relative
+          checked:before:content-['✓'] checked:before:absolute checked:before:inset-0 checked:before:flex checked:before:items-center checked:before:justify-center checked:before:text-white checked:before:text-sm" 
+      %>
+
       <% end %>
       <!-- สำหรับ mobile -->
       <span class="sm:hidden <%= quest.status? ? 'line-through text-pink-400' : 'text-pink-600' %> transition-colors duration-200 font-medium text-xl">

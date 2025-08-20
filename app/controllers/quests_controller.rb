@@ -14,7 +14,8 @@ class QuestsController < ApplicationController
         format.turbo_stream
         format.html { redirect_to quests_path, notice: "Quest was successfully created." }
       else
-        format.html { render :new, status: :unprocessable_entity }
+        @quests = Quest.all # Ensure @quests is set for rendering index
+        format.html { render :index, status: :unprocessable_content }
       end
     end
   end
